@@ -15,13 +15,15 @@ function makeGrid(gridSize) {
     const squares = document.querySelectorAll(".square");
 
     squares.forEach(square => square.addEventListener("mouseover", (e) => {
-        const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
-        const r = randomBetween(0, 255);
-        const g = randomBetween(0, 255);
-        const b = randomBetween(0, 255);
-        const rgb = `rgb(${r},${g},${b})`;
-
-        e.target.style.backgroundColor = rgb;
+        if (e.target.classList.contains("square")){
+            const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
+            const r = randomBetween(0, 255);
+            const g = randomBetween(0, 255);
+            const b = randomBetween(0, 255);
+            const rgb = `rgb(${r},${g},${b})`;
+    
+            e.target.style.backgroundColor = rgb;
+        }
     }))
 }
 
@@ -40,12 +42,5 @@ const button = document.querySelector(".btn");
 
 button.addEventListener("click", function() {
    let newGridSize = getNewGridSize();
-   
-   while (container.firstChild) {
-    container.removeChild(container.firstChild);
-   }
-
    makeGrid(newGridSize);
-
-   
 })
