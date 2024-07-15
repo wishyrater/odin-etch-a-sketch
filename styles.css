@@ -21,13 +21,9 @@ body {
     flex-wrap: wrap;
     height: 85dvh;
     width: 85dvh;
+    border: 1px solid black;
 }
 
 .square {
-    border: 1px solid black;
     box-sizing: border-box;
-}
-
-.hovered {
-    background-color: aqua;
 }
